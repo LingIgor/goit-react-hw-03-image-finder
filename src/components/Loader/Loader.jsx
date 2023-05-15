@@ -6,7 +6,7 @@ export const Loader = () => {
     return (
         <SkeletonTheme baseColor="blue" highlightColor="yellow">
           <p>
-            <Skeleton count={70} />
+            <Skeleton count={1} />
           </p>
         </SkeletonTheme>
       );

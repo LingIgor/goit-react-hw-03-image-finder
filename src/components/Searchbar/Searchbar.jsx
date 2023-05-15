@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, SearchForm, SearchFormBtn, Label, Input } from './Searchbar.styled';
+import { Header, SearchForm, SearchFormBtn,  Input } from './Searchbar.styled';
 
 export class Searchbar extends Component {
 state= {

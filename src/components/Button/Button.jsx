@@ -1,3 +1,3 @@
-export const Button = () => {
-    <button type='button'>Add more</button>
+export const Button =({onClick}) => {
+    return (<button type ='button' onClick={onClick}>Add more</button>)
 }
