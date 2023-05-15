@@ -2,21 +2,17 @@ import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { ImageGallerys } from './ImageGallery.styled';
 // import { Modal } from 'components/Modal/Modal';
 
-
-export const ImageGallery =({images}) => {
-  
+export const ImageGallery = ({ images }) => {
   return (
     <ImageGallerys className="ImageGallery">
-      {images.map((image) => (
+      {images.map(({ webformatURL, tags, largeImageURL, id }) => (
         <ImageGalleryItem
-          src={image.webformatURL}
-          alt={image.tags}
-          largeImageUrl={image.largeImageURL}
-          key={image.id}
+          src={webformatURL}
+          alt={tags}
+          largeImageURL={largeImageURL}
+          key={id}
         />
-       
       ))}
     </ImageGallerys>
   );
-  
-}
+};

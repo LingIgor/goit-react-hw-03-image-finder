@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
-import { Header, SearchForm, SearchFormBtn,  Input } from './Searchbar.styled';
+import { Header, SearchForm, SearchFormBtn, Input } from './Searchbar.styled';
 
 export class Searchbar extends Component {
-state= {
-  newQuery: '',
-}
+  state = {
+    newQuery: '',
+  };
 
+  onSubmitBtn = e => {
+    const { newQuery } = this.state;
+    e.preventDefault();
+    this.props.onSubmit(newQuery);
+    if (this.state.newQuery === '') {
+      alert('Введіть бажаєме значення');
+    }
+    this.setState({ newQuery: '' });
+  };
 
-  onSubmitBtn =(e) => {
-    e.preventDefault()
-    this.props.onSubmit(this.state.newQuery)
-    this.setState ({newQuery: ''})
-
-  }
-
-
-  onChangeInput =(e) => {
+  onChangeInput = e => {
     this.setState({
-      newQuery: e.target.value 
-    })
-  }
-
+      newQuery: e.target.value,
+    });
+  };
 
   render() {
     return (
-      
-      <Header  className="searchbar">
+      <Header className="searchbar">
         <SearchForm className="form" onSubmit={this.onSubmitBtn}>
           <SearchFormBtn type="submit" className="button">
             <span className="button-label">Search</span>
@@ -40,10 +39,8 @@ state= {
             value={this.state.newQuery}
             onChange={this.onChangeInput}
           />
-          
         </SearchForm>
-        </Header>
-      
+      </Header>
     );
   }
 }

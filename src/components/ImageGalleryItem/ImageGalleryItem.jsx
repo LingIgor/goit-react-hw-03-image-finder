@@ -3,9 +3,9 @@ import { Item, Img } from './ImageGalleryItem.styled';
 import { Modal } from 'components/Modal/Modal';
 
 export class ImageGalleryItem extends Component {
-  state= {
+  state = {
     showModal: false,
-  }
+  };
 
   toggleModal = () => {
     this.setState(({ showModal }) => ({
@@ -13,26 +13,17 @@ export class ImageGalleryItem extends Component {
     }));
   };
 
-
-
-
   render() {
-    const { src, alt, largeImageURL} = this.props;
-    // const { showModal } = this.state;
+    const { src, alt, largeImageURL } = this.props;
+    const { showModal } = this.state;
+    const { toggleModal } = this;
     return (
-      <Item >
-        <Img  onClick={this.toggleModal}          
-          src={src}
-          alt={alt}         
-        />
-        {this.state.showModal && (<Modal largeImageURL={largeImageURL} onClose={this.toggleModal}/> )}
+      <Item>
+        <Img onClick={toggleModal} src={src} alt={alt} />
+        {showModal && (
+          <Modal largeImageURL={largeImageURL} onClose={toggleModal} />
+        )}
       </Item>
     );
   }
 }
-    
-    
-    
-    
-  
-
