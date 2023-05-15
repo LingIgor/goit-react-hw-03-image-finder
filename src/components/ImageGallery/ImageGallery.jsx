@@ -1,9 +1,22 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
+import { ImageGallerys } from './ImageGallery.styled';
 // import { Modal } from 'components/Modal/Modal';
-import React, { Component } from 'react';
 
-export class ImageGallery extends Component {
-  render() {
-    return <ul className="gallery"></ul>;
-  }
+
+export const ImageGallery =({images}) => {
+  
+  return (
+    <ImageGallerys className="ImageGallery">
+      {images.map((image) => (
+        <ImageGalleryItem
+          src={image.webformatURL}
+          alt={image.tags}
+          largeImageUrl={image.largeImageURL}
+          key={image.id}
+        />
+       
+      ))}
+    </ImageGallerys>
+  );
+  
 }
