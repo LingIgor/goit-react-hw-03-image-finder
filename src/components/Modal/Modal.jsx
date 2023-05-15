@@ -6,6 +6,10 @@ export class Modal extends Component {
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
   handleKeyDown = e => {
     if (e.code === 'Escape') {
       this.props.onClose();
@@ -21,7 +25,7 @@ export class Modal extends Component {
     return (
       <Overlay onClick={this.handleBackdropClick}>
         <ModalImg>
-          <img src={this.props.largeImageURL} alt="" />
+          <img src={this.props.largeImageURL} alt="name" />
         </ModalImg>
       </Overlay>
     );
