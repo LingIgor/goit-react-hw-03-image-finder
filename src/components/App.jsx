@@ -56,6 +56,7 @@ export class App extends Component {
     this.setState(({ page }) => ({
       page: page + 1,
     }));
+    console.log(this.state.images)
   };
 
   onSubmit = value => {
@@ -80,7 +81,7 @@ export class App extends Component {
           <h1>{this.state.error.message}</h1>
         )}
 
-        {this.state.images.length !== 0 && <Button onClick={onBtnClickPg} />}
+        {this.state.images.length !== 0 && (this.state.images.length /12) === this.state.page && <Button onClick={onBtnClickPg} />}
       </>
     );
   }
